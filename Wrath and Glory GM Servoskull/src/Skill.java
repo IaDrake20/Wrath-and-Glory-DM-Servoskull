@@ -27,7 +27,7 @@ public class Skill {
     }
 
     public String toString(){
-        return "Value: "+ value + " Rank(s): "+ ranks + " Bonus : " + attribBonus + " Attribute: " + attribute;
+        return "Value: "+ value + ". Rank(s): "+ ranks + ". Bonus: " + attribBonus + ". Attribute: " + attribute;
     }
 
     /* Gets and Sets */

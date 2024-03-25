@@ -94,7 +94,8 @@ public class NameGenerator {
         random = new Random();
 
         if(_keyword.isImperial() && isNoble){
-
+                int fn = random.nextInt(maleNobleImperialFNs.length);
+                int ln = random.nextInt(imperialNobleLNs.length);
         }
     }
 }

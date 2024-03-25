@@ -23,26 +23,29 @@ public class Agent {
     int size, speed;
 
     //Skills
-    Skill athletics = new Skill();
-    Skill awareness = new Skill();
-    Skill ballistics = new Skill();
-    Skill cunning = new Skill();
-    Skill deception = new Skill();
-    Skill insight = new Skill();
-    Skill intimidation = new Skill();
-    Skill investigation = new Skill();
-    Skill leadership = new Skill();
-    Skill medicae = new Skill();
-    Skill persuasion = new Skill();
-    Skill pilot = new Skill();
-    Skill psyschicMastery = new Skill();
-    Skill scholar = new Skill();
-    Skill stealth = new Skill();
-    Skill survival = new Skill();
-    Skill tech = new Skill();
-    Skill weapons = new Skill();
+    private Skill athletics = new Skill();
+    private Skill awareness = new Skill();
+    private Skill ballistics = new Skill();
+    private Skill cunning = new Skill();
+    private Skill deception = new Skill();
+    private Skill insight = new Skill();
+    private Skill intimidation = new Skill();
+    private Skill investigation = new Skill();
+    private Skill leadership = new Skill();
+    private Skill medicae = new Skill();
+    private Skill persuasion = new Skill();
+    private Skill pilot = new Skill();
+    private Skill psyschicMastery = new Skill();
+    private Skill scholar = new Skill();
+    private Skill stealth = new Skill();
+    private Skill survival = new Skill();
+    private Skill tech = new Skill();
+    private Skill weapons = new Skill();
 
     Skill[] skillArray = new Skill[18];
+    String[] skillNameArray = {"athletics", "awareness", "ballistics", "cunning", "insight", "intimidation", "investigation", "leadership", "medicae", "persuasion", "pilot", "psychic mastery", 
+                                "scholar", "stealth", "survival", "tech", "weapons"};
+    
 
 
 
@@ -52,8 +55,15 @@ public class Agent {
         skillArray = initSkillArray();
         switch(tier){
             case 1:
+                int i = 0;
                 for(Skill name : skillArray){
+                    
                     name.setValue(4);
+
+                    //TODO: name assigning isn't working
+                    name.setAttribute(skillNameArray[i]);
+                    System.out.println(name.getAttribute());
+                    i++;
                 }
                 defense = 1;
                 resilience = 4;
@@ -169,6 +179,11 @@ public class Agent {
     }
 
     /* Gets & Sets */
+
+    //Name
+    public String getName(){
+        return name;
+    }
 
     //Stats
     public int getStrength() {
@@ -305,11 +320,17 @@ public class Agent {
         return weapons;
     }
 
+    //Sets
+
     public void setAgility(int agility) {
         this.agility = agility;
     }
 
     public void setArmor(int armor) {
         this.armor = armor;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 }
