@@ -4,8 +4,10 @@ public class Main {
         Keyword k = new Keyword(true, false, false, false);
         NameGenerator name = new NameGenerator(k, true, false);
         NameGenerator name2 = new NameGenerator(k, false, true);
-        test.name = name.firstName +" " + name.lastName;
-        System.out.println(name.toString());
-        //System.out.println(test.toString());
+        test.setName(name);
+        System.out.println(name);
+        System.out.println(name2);
+
+        System.out.println(test.toString());
     }
 }

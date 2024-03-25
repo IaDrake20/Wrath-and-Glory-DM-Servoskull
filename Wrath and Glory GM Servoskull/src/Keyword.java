@@ -1,8 +1,12 @@
 public class Keyword {
-    private boolean imperial;
-    private boolean chaos;
-    private boolean eldar;
-    private boolean ork;
+
+    //faction
+    private boolean imperial, chaos, xenos;
+
+    
+
+    //race
+    private boolean human, spaceMarine, ork, eldar, demon;
 
     public Keyword(){
         imperial = false;

@@ -96,28 +96,48 @@ public class NameGenerator {
      * 
      * @param _keyword
      * @param isNoble
-     * @param sex - false: F, true: M
+     * @param _sex - false: F, true: M
      */
-    public NameGenerator(Keyword _keyword, boolean isNoble, boolean sex) {
+    public NameGenerator(Keyword _keyword, boolean isNoble, boolean _sex) {
         random = new Random();
-    
+        sex = _sex;
         if (_keyword.isImperial() && isNoble) {
-            if (sex) {
+            //System.out.println(_sex);
+            if (_sex) {
                 int fn = random.nextInt(maleNobleImperialFNs.length);
                 if (fn >= 0 && fn < maleNobleImperialFNs.length) { // Check bounds
                     firstName = maleNobleImperialFNs[fn];
-                    System.out.println("fn: " + firstName);
+                    //System.out.println("fn: " + firstName);
                 }
             } else {
                 int fn = random.nextInt(femaleNobleImperialFNs.length);
                 if (fn >= 0 && fn < femaleNobleImperialFNs.length) { // Check bounds
-                    firstName = femaleCommonImperialFNs[fn];
-                    System.out.println("fn: " + firstName);
+                    firstName = femaleNobleImperialFNs[fn];
+                    //System.out.println("fn: " + firstName);
                 }
             }
     
             int ln = random.nextInt(imperialNobleLNs.length);
             if (ln >= 0 && ln < imperialNobleLNs.length) { // Check bounds
+                lastName = imperialCommonLNs[ln];
+            }
+        } else if(_keyword.isImperial()){
+            if (_sex) {
+                int fn = random.nextInt(maleCommonImperialFNs.length);
+                if (fn >= 0 && fn < maleCommonImperialFNs.length) { // Check bounds
+                    firstName = maleCommonImperialFNs[fn];
+                    //System.out.println("fn: " + firstName);
+                }
+            } else {
+                int fn = random.nextInt(femaleCommonImperialFNs.length);
+                if (fn >= 0 && fn < femaleCommonImperialFNs.length) { // Check bounds
+                    firstName = femaleCommonImperialFNs[fn];
+                    //System.out.println("fn: " + firstName);
+                }
+            }
+
+            int ln = random.nextInt(imperialCommonLNs.length);
+            if (ln >= 0 && ln < imperialCommonLNs.length) { // Check bounds
                 lastName = imperialCommonLNs[ln];
             }
         }

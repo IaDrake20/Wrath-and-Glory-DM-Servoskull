@@ -7,7 +7,7 @@ public class Agent {
 
     //Character options
     Keyword[] keywords;
-    String name;
+    NameGenerator name;
 
     //physical stats
     private int strength, toughness, agility;
@@ -20,7 +20,8 @@ public class Agent {
     private  int conviction = willpower, resolve = willpower - 1;
 
     //Other stats
-    int size, speed;
+    int speed;
+
 
     //Skills
     private Skill athletics = new Skill();
@@ -53,16 +54,17 @@ public class Agent {
     //Tier Constructor
     public Agent(int tier){
         skillArray = initSkillArray();
+        int i = 0;
         switch(tier){
             case 1:
-                int i = 0;
-                for(Skill name : skillArray){
-                    
-                    name.setValue(4);
 
-                    //TODO: name assigning isn't working
-                    name.setAttribute(skillNameArray[i]);
-                    System.out.println(name.getAttribute());
+                //TODO: turn into helper method
+                for(Skill name : skillArray){
+                    name.setValue(4);
+                    if(i < 17){
+                        name.setAttribute(skillNameArray[i]);
+                        //System.out.println(name.getAttribute());
+                    }
                     i++;
                 }
                 defense = 1;
@@ -76,6 +78,11 @@ public class Agent {
             case 2:
                 for(Skill name : skillArray){
                     name.setValue(6);
+                    if(i < 17){
+                        name.setAttribute(skillNameArray[i]);
+                        //System.out.println(name.getAttribute());
+                    }
+                    i++;
                 }
                 defense = 2;
                 resilience = 8;
@@ -88,6 +95,11 @@ public class Agent {
             case 3:
                 for(Skill name : skillArray){
                     name.setValue(8);
+                    if(i < 17){
+                        name.setAttribute(skillNameArray[i]);
+                        //System.out.println(name.getAttribute());
+                    }
+                    i++;
                 }
                 defense = 3;
                 resilience = 10;
@@ -100,6 +112,11 @@ public class Agent {
             case 4:
                 for(Skill name : skillArray){
                     name.setValue(10);
+                    if(i < 17){
+                        name.setAttribute(skillNameArray[i]);
+                        //System.out.println(name.getAttribute());
+                    }
+                    i++;
                 }
                 defense = 4;
                 resilience = 12;
@@ -181,7 +198,7 @@ public class Agent {
     /* Gets & Sets */
 
     //Name
-    public String getName(){
+    public NameGenerator getName(){
         return name;
     }
 
@@ -330,7 +347,7 @@ public class Agent {
         this.armor = armor;
     }
 
-    public void setName(String name){
+    public void setName(NameGenerator name){
         this.name = name;
     }
 }
