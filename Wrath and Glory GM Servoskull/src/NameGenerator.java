@@ -13,6 +13,8 @@ public class NameGenerator {
 
     String firstName, lastName;
 
+    boolean sex;
+
     final char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
     final char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y','z'};
 
@@ -90,12 +92,41 @@ public class NameGenerator {
 
     }
 
-    public NameGenerator(Keyword _keyword, boolean isNoble){
+    /**
+     * 
+     * @param _keyword
+     * @param isNoble
+     * @param sex - false: F, true: M
+     */
+    public NameGenerator(Keyword _keyword, boolean isNoble, boolean sex) {
         random = new Random();
-
-        if(_keyword.isImperial() && isNoble){
+    
+        if (_keyword.isImperial() && isNoble) {
+            if (sex) {
                 int fn = random.nextInt(maleNobleImperialFNs.length);
-                int ln = random.nextInt(imperialNobleLNs.length);
+                if (fn >= 0 && fn < maleNobleImperialFNs.length) { // Check bounds
+                    firstName = maleNobleImperialFNs[fn];
+                    System.out.println("fn: " + firstName);
+                }
+            } else {
+                int fn = random.nextInt(femaleNobleImperialFNs.length);
+                if (fn >= 0 && fn < femaleNobleImperialFNs.length) { // Check bounds
+                    firstName = femaleCommonImperialFNs[fn];
+                    System.out.println("fn: " + firstName);
+                }
+            }
+    
+            int ln = random.nextInt(imperialNobleLNs.length);
+            if (ln >= 0 && ln < imperialNobleLNs.length) { // Check bounds
+                lastName = imperialCommonLNs[ln];
+            }
         }
+    
+        System.out.println("Generated name: " + firstName + " " + lastName);
+    }
+    
+
+    public String toString(){
+        return "Sex: "+sex+". First name: "+firstName + ". Last name: "+lastName;
     }
 }
