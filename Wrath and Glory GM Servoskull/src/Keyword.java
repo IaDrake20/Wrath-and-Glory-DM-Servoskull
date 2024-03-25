@@ -3,17 +3,17 @@ public class Keyword {
     //faction
     private boolean imperial, chaos, xenos;
 
-    
+    //subfaction
+    private boolean imp_AdeptaSororitas, imp_AdeptusAstraTelepathica, imp_AdeptusMechanicus,
+            imp_AdeptusMinistorum, imp_AstraMilitarum, imp_Inquisition,
+            imp_RogueTraderDynasty, imp_Scum, imp_AdeptusAstartes;
+
+    private boolean xenos_Eldar, xenos_Orks, chaos_Traitor, chaos_Demon;
 
     //race
     private boolean human, spaceMarine, ork, eldar, demon;
 
-    public Keyword(){
-        imperial = false;
-        chaos = false;
-        eldar = false;
-        ork = false;
-    }
+
 
     public Keyword(boolean _imperial, boolean _chaos, boolean _eldar, boolean _ork){
         imperial = _imperial;
