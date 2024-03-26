@@ -9,25 +9,15 @@ public class Keyword {
     private Faction xenos = new Faction("Xenos", new String[]{"Aeldar", "Ork", "Tyrannid", "Necron", "Votann"});
 
     //race
-    private boolean human, spaceMarine, ork, eldar, demon;
+    private Race human = new Race("Human",0, 8,8,8,8,8,8,8,8);
+    //spaceMarine, ork, eldar, demon;
+    private Race spaceMarine = new Race("Space Marine",160, 10, 10, 9,9,10,10,8,9);
+    private Race ork = new Race("Ork",20, 12, 12, 7, 7, 8, 7, 7, 7);
+    private Race eldar = new Race("Aeldari",10, 7,7,12,12,12,10,6,10);
+    private Race primarisMarine = new Race("Primaris Marine",198, 12, 12, 9, 9, 10, 10, 8, 9);
+
 
     public Keyword(){
-    }
-
-    /**
-     *
-     * @param human
-     * @param spaceMarine
-     * @param ork
-     * @param eldar
-     * @param demon
-     */
-    public Keyword(boolean human, boolean spaceMarine, boolean ork, boolean eldar, boolean demon) {
-        this.human = human;
-        this.spaceMarine = spaceMarine;
-        this.ork = ork;
-        this.eldar = eldar;
-        this.demon = demon;
     }
 
     @Override
@@ -40,71 +30,77 @@ public class Keyword {
                 ", spaceMarine=" + spaceMarine +
                 ", ork=" + ork +
                 ", eldar=" + eldar +
-                ", demon=" + demon +
+                ", primarisMarine=" + primarisMarine +
                 '}';
+    }
+
+    public Keyword(Faction imperial, Faction chaos, Faction xenos) {
+        this.imperial = imperial;
+        this.chaos = chaos;
+        this.xenos = xenos;
     }
 
     public Faction getImperial() {
         return imperial;
     }
 
-    public void setImperial(Faction imperial) {
-        this.imperial = imperial;
-    }
-
     public Faction getChaos() {
         return chaos;
-    }
-
-    public void setChaos(Faction chaos) {
-        chaos = chaos;
     }
 
     public Faction getXenos() {
         return xenos;
     }
 
-    public void setXenos(Faction xenos) {
-        xenos = xenos;
-    }
-
-    public boolean isHuman() {
+    public Race getHuman() {
         return human;
     }
 
-    public void setHuman(boolean human) {
-        this.human = human;
-    }
-
-    public boolean isSpaceMarine() {
+    public Race getSpaceMarine() {
         return spaceMarine;
     }
 
-    public void setSpaceMarine(boolean spaceMarine) {
-        this.spaceMarine = spaceMarine;
-    }
-
-    public boolean isOrk() {
+    public Race getOrk() {
         return ork;
     }
 
-    public void setOrk(boolean ork) {
-        this.ork = ork;
-    }
-
-    public boolean isEldar() {
+    public Race getEldar() {
         return eldar;
     }
 
-    public void setEldar(boolean eldar) {
+    public Race getPrimarisMarine() {
+        return primarisMarine;
+    }
+
+    public void setImperial(Faction imperial) {
+        this.imperial = imperial;
+    }
+
+    public void setChaos(Faction chaos) {
+        this.chaos = chaos;
+    }
+
+    public void setXenos(Faction xenos) {
+        this.xenos = xenos;
+    }
+
+    public void setHuman(Race human) {
+        this.human = human;
+    }
+
+    public void setSpaceMarine(Race spaceMarine) {
+        this.spaceMarine = spaceMarine;
+    }
+
+    public void setOrk(Race ork) {
+        this.ork = ork;
+    }
+
+    public void setEldar(Race eldar) {
         this.eldar = eldar;
     }
 
-    public boolean isDemon() {
-        return demon;
-    }
-
-    public void setDemon(boolean demon) {
-        this.demon = demon;
+    public void setPrimarisMarine(Race primarisMarine) {
+        this.primarisMarine = primarisMarine;
     }
 }

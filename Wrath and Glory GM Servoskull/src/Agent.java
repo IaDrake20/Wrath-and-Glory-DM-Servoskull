@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Agent {
 
     //temp vars until more code is filled out
@@ -12,6 +14,7 @@ public class Agent {
     Keyword[] keywords;
     NameGenerator name;
 
+    //TODO: get these or set them from Race
     //physical stats
     private int strength, toughness, agility;
 
@@ -140,7 +143,12 @@ public class Agent {
     @Override
     public String toString() {
         return "Agent{" +
-                "strength=" + strength +
+                "base=" + base +
+                ", armor=" + armor +
+                ", tier=" + tier +
+                ", keywords=" + Arrays.toString(keywords) +
+                ", name=" + name +
+                ", strength=" + strength +
                 ", toughness=" + toughness +
                 ", agility=" + agility +
                 ", initiative=" + initiative +
@@ -153,8 +161,8 @@ public class Agent {
                 ", shock=" + shock +
                 ", conviction=" + conviction +
                 ", resolve=" + resolve +
-                ", size=" + size +
                 ", speed=" + speed +
+                ", size=" + size +
                 ", athletics=" + athletics +
                 ", awareness=" + awareness +
                 ", ballistics=" + ballistics +
@@ -173,6 +181,8 @@ public class Agent {
                 ", survival=" + survival +
                 ", tech=" + tech +
                 ", weapons=" + weapons +
+                ", skillArray=" + Arrays.toString(skillArray) +
+                ", skillNameArray=" + Arrays.toString(skillNameArray) +
                 '}';
     }
 
@@ -345,6 +355,16 @@ public class Agent {
 
     //Sets
 
+    public void setStats(int strength, int toughness, int agility, int initiative, int willpower, int intellect, int fellowship, int speed){
+        this.strength = strength;
+        this.toughness = toughness;
+        this.agility = agility;
+        this.initiative = initiative;
+        this.willpower = willpower;
+        this.intelligence = intellect;
+        this.fellowship = fellowship;
+        this.speed = speed;
+    }
     public void setAgility(int agility) {
         this.agility = agility;
     }

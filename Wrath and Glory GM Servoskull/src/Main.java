@@ -1,12 +1,11 @@
 public class Main {
     public static void main(String[]args){
         Agent test = new Agent(3);
-        Keyword k = new Keyword(true, false, false, false, false);
+        Keyword k = new Keyword();
+        Race human = k.getHuman();
         NameGenerator name = new NameGenerator(k, true, false);
-        NameGenerator name2 = new NameGenerator(k, false, true);
         test.setName(name);
-        System.out.println(name);
-        System.out.println(name2);
+        test.setStats(human.getStrength(), human.getToughness(), human.getAgility(), human.getInitiative(), human.getWillpower(), human.getIntellect(), human.getFellowship(), human.getSpeed());
 
         System.out.println(test.toString());
     }
