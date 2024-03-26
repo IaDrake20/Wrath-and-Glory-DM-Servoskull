@@ -101,7 +101,8 @@ public class NameGenerator {
     public NameGenerator(Keyword _keyword, boolean isNoble, boolean _sex) {
         random = new Random();
         sex = _sex;
-        if (_keyword.isImperial() && isNoble) {
+
+        if (_keyword.isHuman() && isNoble) {
             //System.out.println(_sex);
             if (_sex) {
                 int fn = random.nextInt(maleNobleImperialFNs.length);
@@ -121,7 +122,7 @@ public class NameGenerator {
             if (ln >= 0 && ln < imperialNobleLNs.length) { // Check bounds
                 lastName = imperialCommonLNs[ln];
             }
-        } else if(_keyword.isImperial()){
+        } else if(_keyword.isHuman()){
             if (_sex) {
                 int fn = random.nextInt(maleCommonImperialFNs.length);
                 if (fn >= 0 && fn < maleCommonImperialFNs.length) { // Check bounds

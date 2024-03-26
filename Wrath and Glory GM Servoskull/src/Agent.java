@@ -1,6 +1,9 @@
 public class Agent {
 
     //temp vars until more code is filled out
+    //Get armor from wargear object
+    //get tier from Game object
+    //TODO: get base from _______
     int base = 0;
     int armor = 0;
     int tier = 0;
@@ -16,12 +19,15 @@ public class Agent {
     private int initiative, willpower, intelligence, fellowship;
 
     //defensive stats
-    private int wounds = (2 * tier) + toughness, resilience = toughness + 1 + armor, defense = initiative - 1, shock = willpower + tier;
+    private int wounds;// = (2 * tier) + toughness,
+    private int resilience;//= toughness + 1 + armor,
+    private int defense;// = initiative - 1
+    private int shock;// = willpower + tier;
     private  int conviction = willpower, resolve = willpower - 1;
 
     //Other stats
     int speed;
-
+    Size size;
 
     //Skills
     private Skill athletics = new Skill();
@@ -255,7 +261,7 @@ public class Agent {
         return resolve;
     }
 
-    public int getSize(){
+    public Size getSize(){
         return size;
     }
 

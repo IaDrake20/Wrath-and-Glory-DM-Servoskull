@@ -65,4 +65,7 @@ public class Wargear {
 
     }
 
+    public String toString(){
+        return "Value: " +value+ ". Rarity: "+rarity;
+    }
 }
