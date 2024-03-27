@@ -2,25 +2,29 @@ public class Trait {
     private String name;
     private String description, shortDescription;
     int rating;
+    int id;
 
     public Trait(){
         name = "";
         description = "";
         shortDescription = "";
         rating = 0;
+        id = 0;
     }
 
-    public Trait(String _name, String _description, String _sD) {
+    public Trait(String _name, String _description, String _sD, int _id) {
         name = _name;
         description = _description;
         shortDescription = _sD;
+        id = _id;
     }
 
-    public Trait(String _name, String _description, String _sD, int _rating) {
+    public Trait(String _name, String _description, String _sD, int _rating, int _id) {
         name = _name;
         description = _description;
         shortDescription = _sD;
         rating = _rating;
+        id = _id;
     }
 
     public String getName(){
@@ -39,6 +43,8 @@ public class Trait {
         return rating;
     }
 
+    public int getId(){return id;}
+
     public void setName(String _name){
         name = _name;
     }
@@ -56,6 +62,6 @@ public class Trait {
     }
 
     public String toString(){
-        return "Name: "+name+". Short Description: "+shortDescription+". Description: "+description;
+        return "Name: "+name+". Short Description: "+shortDescription+". Description: "+description+". ID: "+id;
     }
 }

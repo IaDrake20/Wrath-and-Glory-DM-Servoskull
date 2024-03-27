@@ -36,4 +36,38 @@ public class Faction {
     public void setSubfactions(String[] subfactions) {
         this.subfactions = subfactions;
     }
+
+    class Subfaction{
+        String sub_name;
+        String sub_description;
+
+        public Subfaction(String sub_name, String sub_description) {
+            this.sub_name = sub_name;
+            this.sub_description = sub_description;
+        }
+
+        public String getSub_name() {
+            return sub_name;
+        }
+
+        public void setSub_name(String sub_name) {
+            this.sub_name = sub_name;
+        }
+
+        public String getSub_description() {
+            return sub_description;
+        }
+
+        public void setSub_description(String sub_description) {
+            this.sub_description = sub_description;
+        }
+
+        @Override
+        public String toString() {
+            return "Subfaction{" +
+                    "sub_name='" + sub_name + '\'' +
+                    ", sub_description='" + sub_description + '\'' +
+                    '}';
+        }
+    }
 }

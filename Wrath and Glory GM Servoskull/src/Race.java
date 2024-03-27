@@ -8,9 +8,11 @@ public class Race {
     private int xpCost;
     private int maxStrength, maxToughness, maxAgility, maxInitiative, maxWillpower, maxIntellect, maxFellowship, maxSpeed;
 
+    private boolean isXenos;
+
     private int strength, toughness, agility, initiative, willpower, intellect, fellowship, speed;
 
-    public Race(String name, int xpCost, int maxStrength, int maxToughness, int maxAgility, int maxInitiative, int maxWillpower, int maxIntellect, int maxFellowship, int maxSpeed) {
+    public Race(String name, int xpCost, int maxStrength, int maxToughness, int maxAgility, int maxInitiative, int maxWillpower, int maxIntellect, int maxFellowship, int maxSpeed, boolean _isXenos) {
         this.name = name;
         this.xpCost = xpCost;
         this.maxStrength = maxStrength;
@@ -21,6 +23,7 @@ public class Race {
         this.maxIntellect = maxIntellect;
         this.maxFellowship = maxFellowship;
         this.maxSpeed = maxSpeed;
+        this.isXenos = _isXenos;
     }
 
     @Override
@@ -44,6 +47,7 @@ public class Race {
                 ", intellect=" + intellect +
                 ", fellowship=" + fellowship +
                 ", speed=" + speed +
+                ", isXenos= "+isXenos +
                 '}';
     }
 
@@ -87,6 +91,13 @@ public class Race {
         return speed;
     }
 
+    public boolean getIsXenos() {
+        return isXenos;
+    }
+
+    public void setIsXenos(boolean bool){
+        isXenos = bool;
+    }
     public void setName(String name){
         this.name = name;
     }

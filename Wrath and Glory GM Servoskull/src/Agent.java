@@ -7,7 +7,7 @@ public class Agent {
     //get tier from Game object
     //TODO: get base from _______
     int base = 0;
-    int armor = 0;
+    Wargear myArmor;// = new Wargear.Armor();
     int tier = 0;
 
     //Character options
@@ -61,12 +61,33 @@ public class Agent {
 
 
     //Tier Constructor
-    public Agent(int tier){
+    public Agent(Game game, Race _race, int _speed, Wargear[] wargear){
         skillArray = initSkillArray();
+        speed = _speed;
         int i = 0;
-        switch(tier){
+        myArmor = wargear[0];
+
+        switch(game.tier){
             case 1:
 
+                //TODO: make into helper method
+                if(_race.getIsXenos()){
+                    _race.setStrength(game.tier + game.rank + 1);
+                    _race.setToughness(game.tier + game.rank + 1);
+                    _race.setAgility(game.tier + game.rank + 1);
+                    _race.setInitiative(game.tier + game.rank + 1);
+                    _race.setWillpower(game.tier + game.rank + 1);
+                    _race.setIntellect(game.tier + game.rank + 1);
+                    _race.setFellowship(game.tier + game.rank);
+                } else {
+                    _race.setStrength(game.tier + game.rank);
+                    _race.setToughness(game.tier + game.rank);
+                    _race.setAgility(game.tier + game.rank);
+                    _race.setInitiative(game.tier + game.rank);
+                    _race.setWillpower(game.tier + game.rank);
+                    _race.setIntellect(game.tier + game.rank);
+                    _race.setFellowship(game.tier + game.rank + 1);
+                }
                 //TODO: turn into helper method
                 for(Skill name : skillArray){
                     name.setValue(4);
@@ -76,7 +97,9 @@ public class Agent {
                     }
                     i++;
                 }
-                defense = 1;
+
+                //TODO: add to some future helper method
+                defense = _race.getInitiative() - 1;
                 resilience = 4;
                 wounds = 3;
                 shock = 2;
@@ -85,6 +108,23 @@ public class Agent {
                 speed = 6;
                 break;
             case 2:
+                if(_race.getIsXenos()){
+                    _race.setStrength(game.tier + game.rank + 2);
+                    _race.setToughness(game.tier + game.rank + 2);
+                    _race.setAgility(game.tier + game.rank + 2);
+                    _race.setInitiative(game.tier + game.rank + 2);
+                    _race.setWillpower(game.tier + game.rank + 2);
+                    _race.setIntellect(game.tier + game.rank + 2);
+                    _race.setFellowship(game.tier + game.rank + 2);
+                } else {
+                    _race.setStrength(game.tier + game.rank + 1);
+                    _race.setToughness(game.tier + game.rank + 1);
+                    _race.setAgility(game.tier + game.rank + 1);
+                    _race.setInitiative(game.tier + game.rank + 1);
+                    _race.setWillpower(game.tier + game.rank + 1);
+                    _race.setIntellect(game.tier + game.rank + 1);
+                    _race.setFellowship(game.tier + game.rank + 1);
+                }
                 for(Skill name : skillArray){
                     name.setValue(6);
                     if(i < 17){
@@ -102,6 +142,23 @@ public class Agent {
                 speed = 7;
                 break;
             case 3:
+                if(_race.getIsXenos()){
+                    _race.setStrength(game.tier + game.rank + 2);
+                    _race.setToughness(game.tier + game.rank + 2);
+                    _race.setAgility(game.tier + game.rank + 2);
+                    _race.setInitiative(game.tier + game.rank + 2);
+                    _race.setWillpower(game.tier + game.rank + 2);
+                    _race.setIntellect(game.tier + game.rank + 2);
+                    _race.setFellowship(game.tier + game.rank + 2);
+                } else {
+                    _race.setStrength(game.tier + game.rank + 1);
+                    _race.setToughness(game.tier + game.rank + 1);
+                    _race.setAgility(game.tier + game.rank + 1);
+                    _race.setInitiative(game.tier + game.rank + 1);
+                    _race.setWillpower(game.tier + game.rank + 1);
+                    _race.setIntellect(game.tier + game.rank + 1);
+                    _race.setFellowship(game.tier + game.rank + 1);
+                }
                 for(Skill name : skillArray){
                     name.setValue(8);
                     if(i < 17){
@@ -119,6 +176,23 @@ public class Agent {
                 speed = 8;
                 break;
             case 4:
+                if(_race.getIsXenos()){
+                    _race.setStrength(game.tier + game.rank + 2);
+                    _race.setToughness(game.tier + game.rank + 2);
+                    _race.setAgility(game.tier + game.rank + 2);
+                    _race.setInitiative(game.tier + game.rank + 2);
+                    _race.setWillpower(game.tier + game.rank + 2);
+                    _race.setIntellect(game.tier + game.rank + 2);
+                    _race.setFellowship(game.tier + game.rank + 2);
+                } else {
+                    _race.setStrength(game.tier + game.rank + 1);
+                    _race.setToughness(game.tier + game.rank + 1);
+                    _race.setAgility(game.tier + game.rank + 1);
+                    _race.setInitiative(game.tier + game.rank + 1);
+                    _race.setWillpower(game.tier + game.rank + 1);
+                    _race.setIntellect(game.tier + game.rank + 1);
+                    _race.setFellowship(game.tier + game.rank + 1);
+                }
                 for(Skill name : skillArray){
                     name.setValue(10);
                     if(i < 17){
@@ -144,7 +218,7 @@ public class Agent {
     public String toString() {
         return "Agent{" +
                 "base=" + base +
-                ", armor=" + armor +
+                ", armor=" + myArmor +
                 ", tier=" + tier +
                 ", keywords=" + Arrays.toString(keywords) +
                 ", name=" + name +
@@ -163,26 +237,24 @@ public class Agent {
                 ", resolve=" + resolve +
                 ", speed=" + speed +
                 ", size=" + size +
-                ", athletics=" + athletics +
-                ", awareness=" + awareness +
-                ", ballistics=" + ballistics +
-                ", cunning=" + cunning +
-                ", deception=" + deception +
-                ", insight=" + insight +
-                ", intimidation=" + intimidation +
-                ", investigation=" + investigation +
-                ", leadership=" + leadership +
-                ", medicae=" + medicae +
-                ", persuasion=" + persuasion +
-                ", pilot=" + pilot +
-                ", psyschicMastery=" + psyschicMastery +
-                ", scholar=" + scholar +
-                ", stealth=" + stealth +
-                ", survival=" + survival +
-                ", tech=" + tech +
-                ", weapons=" + weapons +
-                ", skillArray=" + Arrays.toString(skillArray) +
-                ", skillNameArray=" + Arrays.toString(skillNameArray) +
+                ",\n athletics=" + athletics +
+                ",\n awareness=" + awareness +
+                ",\n ballistics=" + ballistics +
+                ",\n cunning=" + cunning +
+                ",\n deception=" + deception +
+                ",\n insight=" + insight +
+                ",\n intimidation=" + intimidation +
+                ",\n investigation=" + investigation +
+                ",\n leadership=" + leadership +
+                ",\n medicae=" + medicae +
+                ",\n persuasion=" + persuasion +
+                ",\n pilot=" + pilot +
+                ",\n psyschicMastery=" + psyschicMastery +
+                ",\n scholar=" + scholar +
+                ",\n stealth=" + stealth +
+                ",\n survival=" + survival +
+                ",\n tech=" + tech +
+                ",\n weapons=" + weapons +
                 '}';
     }
 
@@ -369,11 +441,20 @@ public class Agent {
         this.agility = agility;
     }
 
-    public void setArmor(int armor) {
-        this.armor = armor;
+    public void setMyArmor(Wargear myArmor) {
+        this.myArmor = myArmor;
     }
 
     public void setName(NameGenerator name){
         this.name = name;
+    }
+
+    public void setKeywords(Keyword[] keywords) {
+        this.keywords = keywords;
+    }
+
+    //TODO: remove after game object is brought in as that will have the tier
+    public void setTier(int num){
+        this.tier = num;
     }
 }
