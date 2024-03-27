@@ -2,9 +2,10 @@ public class Main {
     public static void main(String[]args){
         Game newGame = new Game(3, 1);
         Race human = new Race("Human", 0, 8,8,8,8,8,8,8,6, false);
-
+        Size mySize = new Size();
         Wargear[] givenWargear = new Wargear[5];
-        Wargear myArmor = new Wargear(0, "", 2, new int[]{0});
+        Armor myArmor = new Armor(3, "", new Armor.a_Trait[]{});
+        givenWargear[0] = myArmor;
         //Wargear.Armor ar = new Wargear.Armor(3, "Common", 4, new int[]{0});
 
         Agent test = new Agent(newGame, human, 6, givenWargear);
