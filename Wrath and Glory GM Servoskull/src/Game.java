@@ -1,6 +1,6 @@
 public class Game {
-    int tier;
-    int rank;
+    private int tier;
+    private int rank;
 
     public Game(){}
     public Game(int tier, int rank) {

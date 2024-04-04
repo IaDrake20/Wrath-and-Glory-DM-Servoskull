@@ -2,8 +2,10 @@
  * This class is mainly used by Keyword
  * For now access Race stats through Keyword
  */
+import java.util.Random;
 public class Race {
 
+    private Random random = new Random();
     private String name;
     private int xpCost;
     private int maxStrength, maxToughness, maxAgility, maxInitiative, maxWillpower, maxIntellect, maxFellowship, maxSpeed;
@@ -24,6 +26,22 @@ public class Race {
         this.maxFellowship = maxFellowship;
         this.maxSpeed = maxSpeed;
         this.isXenos = _isXenos;
+    }
+
+    public Race humanByTier(int tier){
+        Race humanTier = new Race("Human", -1, tier+random.nextInt(4), tier+random.nextInt(4), tier+random.nextInt(4), tier+random.nextInt(4), tier+random.nextInt(4), tier+random.nextInt(4), tier+random.nextInt(4), 6+random.nextInt(2), false);
+        //TODO: deep copy
+        return humanTier;
+    }
+
+    public Race orkByTier(int tier){
+        Race orkTier = new Race("Ork", -1, tier+1+random.nextInt(6), tier+1+random.nextInt(6), tier+random.nextInt(4), tier+random.nextInt(4), tier+random.nextInt(4), tier+random.nextInt(4), tier+random.nextInt(4), 6+random.nextInt(3), true);
+        return orkTier;
+    }
+
+    public Race eldarByTier(int tier){
+        Race eldarTier = new Race("Eldar", -1, tier+random.nextInt(3), tier+random.nextInt(3), tier+1+random.nextInt(4), tier+random.nextInt(3), tier+random.nextInt(3), tier+random.nextInt(3), tier+random.nextInt(3), 7+random.nextInt(3), true);
+        return eldarTier;
     }
 
     @Override

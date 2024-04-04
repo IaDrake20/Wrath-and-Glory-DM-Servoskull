@@ -2,14 +2,23 @@ public class Armor extends Wargear{
     private int armorResilience;
     private String name;
 
-    private a_Trait[] traits;
+    private Trait[] traits;
 
     public Armor(){}
 
-    public Armor(int armorResilience, String name, a_Trait[] traits) {
+    public Armor(int armorResilience, String name, Trait[] traits) {
         this.armorResilience = armorResilience;
         this.name = name;
         this.traits = traits;
+    }
+
+    public String toString(){
+        return "Name: "+name+". AR: "+armorResilience+". Traits: "+traits;
+    }
+
+    //TODO: might not be the best idea to transfer the traits this way
+    public Trait[] getTraits(){
+        return new a_Trait().getArmorTraits();
     }
 
     class a_Trait {
@@ -19,6 +28,9 @@ public class Armor extends Wargear{
         private final Trait cumbersome = new Trait("Cumbersome","Large suits of armor can severely restrict movement. You cannot Run or Sprint in Cumbersome armor.","Only move at base speed.", 2);
         private final Trait ereWeGo = new Trait("'Ere We Go!","The latent psychic power of an Ork empowers their armour, allowing them to fight harder when harmed. An Ork wearing armour with this Trait ignores the Bulk and Cumbersome Traits when Wounded","Orks ignore Bulk and Cumbersome when Wounded", 3);
 
+        public Trait[] getArmorTraits(){
+            return new Trait[]{invulnerable, bulk, cumbersome, ereWeGo};
+        }
 
         public a_Trait(){};
 

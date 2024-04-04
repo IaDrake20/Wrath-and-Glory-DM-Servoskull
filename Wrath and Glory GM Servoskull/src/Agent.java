@@ -67,27 +67,21 @@ public class Agent {
         int i = 0;
         myArmor = wargear[0];
 
-        switch(game.tier){
+        switch(_race.getName()){
+            case "Eldar":
+                _race = _race.eldarByTier(game.getTier());
+                break;
+            case "Human":
+                _race = _race.humanByTier(game.getTier());
+                break;
+            case "Ork":
+                _race = _race.orkByTier(game.getTier());
+                break;
+        }
+
+        switch(game.getTier()){
             case 1:
 
-                //TODO: make into helper method
-                if(_race.getIsXenos()){
-                    _race.setStrength(game.tier + game.rank + 1);
-                    _race.setToughness(game.tier + game.rank + 1);
-                    _race.setAgility(game.tier + game.rank + 1);
-                    _race.setInitiative(game.tier + game.rank + 1);
-                    _race.setWillpower(game.tier + game.rank + 1);
-                    _race.setIntellect(game.tier + game.rank + 1);
-                    _race.setFellowship(game.tier + game.rank);
-                } else {
-                    _race.setStrength(game.tier + game.rank);
-                    _race.setToughness(game.tier + game.rank);
-                    _race.setAgility(game.tier + game.rank);
-                    _race.setInitiative(game.tier + game.rank);
-                    _race.setWillpower(game.tier + game.rank);
-                    _race.setIntellect(game.tier + game.rank);
-                    _race.setFellowship(game.tier + game.rank + 1);
-                }
                 //TODO: turn into helper method
                 for(Skill name : skillArray){
                     name.setValue(4);
@@ -108,23 +102,8 @@ public class Agent {
                 speed = 6;
                 break;
             case 2:
-                if(_race.getIsXenos()){
-                    _race.setStrength(game.tier + game.rank + 2);
-                    _race.setToughness(game.tier + game.rank + 2);
-                    _race.setAgility(game.tier + game.rank + 2);
-                    _race.setInitiative(game.tier + game.rank + 2);
-                    _race.setWillpower(game.tier + game.rank + 2);
-                    _race.setIntellect(game.tier + game.rank + 2);
-                    _race.setFellowship(game.tier + game.rank + 2);
-                } else {
-                    _race.setStrength(game.tier + game.rank + 1);
-                    _race.setToughness(game.tier + game.rank + 1);
-                    _race.setAgility(game.tier + game.rank + 1);
-                    _race.setInitiative(game.tier + game.rank + 1);
-                    _race.setWillpower(game.tier + game.rank + 1);
-                    _race.setIntellect(game.tier + game.rank + 1);
-                    _race.setFellowship(game.tier + game.rank + 1);
-                }
+                
+
                 for(Skill name : skillArray){
                     name.setValue(6);
                     if(i < 17){
@@ -133,7 +112,7 @@ public class Agent {
                     }
                     i++;
                 }
-                defense = 2;
+                defense = _race.getInitiative() - 1;
                 resilience = 8;
                 wounds = 5;
                 shock = 4;
@@ -142,23 +121,8 @@ public class Agent {
                 speed = 7;
                 break;
             case 3:
-                if(_race.getIsXenos()){
-                    _race.setStrength(game.tier + game.rank + 2);
-                    _race.setToughness(game.tier + game.rank + 2);
-                    _race.setAgility(game.tier + game.rank + 2);
-                    _race.setInitiative(game.tier + game.rank + 2);
-                    _race.setWillpower(game.tier + game.rank + 2);
-                    _race.setIntellect(game.tier + game.rank + 2);
-                    _race.setFellowship(game.tier + game.rank + 2);
-                } else {
-                    _race.setStrength(game.tier + game.rank + 1);
-                    _race.setToughness(game.tier + game.rank + 1);
-                    _race.setAgility(game.tier + game.rank + 1);
-                    _race.setInitiative(game.tier + game.rank + 1);
-                    _race.setWillpower(game.tier + game.rank + 1);
-                    _race.setIntellect(game.tier + game.rank + 1);
-                    _race.setFellowship(game.tier + game.rank + 1);
-                }
+                
+
                 for(Skill name : skillArray){
                     name.setValue(8);
                     if(i < 17){
@@ -176,23 +140,8 @@ public class Agent {
                 speed = 8;
                 break;
             case 4:
-                if(_race.getIsXenos()){
-                    _race.setStrength(game.tier + game.rank + 2);
-                    _race.setToughness(game.tier + game.rank + 2);
-                    _race.setAgility(game.tier + game.rank + 2);
-                    _race.setInitiative(game.tier + game.rank + 2);
-                    _race.setWillpower(game.tier + game.rank + 2);
-                    _race.setIntellect(game.tier + game.rank + 2);
-                    _race.setFellowship(game.tier + game.rank + 2);
-                } else {
-                    _race.setStrength(game.tier + game.rank + 1);
-                    _race.setToughness(game.tier + game.rank + 1);
-                    _race.setAgility(game.tier + game.rank + 1);
-                    _race.setInitiative(game.tier + game.rank + 1);
-                    _race.setWillpower(game.tier + game.rank + 1);
-                    _race.setIntellect(game.tier + game.rank + 1);
-                    _race.setFellowship(game.tier + game.rank + 1);
-                }
+                
+
                 for(Skill name : skillArray){
                     name.setValue(10);
                     if(i < 17){
@@ -453,8 +402,7 @@ public class Agent {
         this.keywords = keywords;
     }
 
-    //TODO: remove after game object is brought in as that will have the tier
-    public void setTier(int num){
-        this.tier = num;
+    public void setSize(Size _size){
+        this.size = _size;
     }
 }

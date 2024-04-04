@@ -33,6 +33,11 @@ public class Size {
         return null;
     }
 
+    @Override
+    public String toString(){
+        return "Small: "+small+". Medium: "+medium+". Large: "+large;
+    }
+
     public boolean isSmall() {
         return small;
     }
